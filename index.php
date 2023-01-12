@@ -1,3 +1,22 @@
+<?php
+    include_once("helpers/conn-mysql.php");
+    include_once("helpers/processing-data.php");
+
+
+    // Return all the tasks
+    
+    $tasks = [];
+    
+    $query = "SELECT * FROM todo";
+    
+    $stmt = $conn->prepare($query);
+    
+    $stmt->execute();
+    
+    $tasks = $stmt->fetchAll();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +30,40 @@
 
 </head>
 <body>
-    <div>
-        <table class="table table-bordered table-striped">
-            <thead>
+
+    <div class="register__content">
+        <form action="./helpers/process-data.php" method="POST">
+            <input type="text" name="nome" placeholder="Insira sua task">
+            <input type="hidden" name="type" value = "create">
+            <button>Registre</button>
+        </form>
+    </div>
+
+
+    <div class="table__content">
+        <table class="table">
+            <thead class="table-info">
                 <tr>
-                    <th>Status</th>
-                    <th>Nome</th>
+                    <th>Task</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($tasks as $task): ?>
                 <tr>
-                    <td><input type="checkbox"></td>
-                    <td>Uma task qualquer</td>
+                   
+                    <td>
+                        <input type="checkbox" <?php echo $task["task_status"] ? 'checked' : '' ?>>
+                        <?=$task["nome"]?>
+                    </td>
+                    <td>
+                        <a href="#">View</a>
+                        <a href="#">Editar</a>
+                        <a href="#">Deletar</a>
+                    </td>
+                    
                 </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>
