@@ -31,6 +31,30 @@ if(!empty($data))
             echo "Erro: $error";
         }
 
+    } else if($data["type"] === "view")
+    {
+        
+    } else if($data["type"] === "edit")
+    {
+
+    } else if($data["type"] === "delete")
+    {
+        $id = $data["id"];
+
+        $query="DELETE FROM todo WHERE id = :id";
+
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+
+        try {
+
+            $stmt->execute();
+            
+        } catch (PDOException $e) {
+            $error = $e->getMessage();
+            echo "Erro: $error";
+        }
+
     }
     
     header("Location: "."../index.php");

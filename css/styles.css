@@ -1,0 +1,4 @@
+.table__action {
+    display: flex;
+    gap: 5px;
+}
