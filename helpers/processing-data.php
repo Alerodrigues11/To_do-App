@@ -35,13 +35,34 @@ if(!empty($data))
     {
         
     } else if($data["type"] === "edit")
-    {
+    {   
+        // EDIT
+        
+        $id = $data["id"];
+        $nome = $data["nome"];
+
+        $query = "UPDATE todo SET nome = :nome WHERE id = :id";
+
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":nome", $nome);
+        $stmt->bindParam(":id", $id);
+
+        try {
+
+            $stmt->execute();
+            
+        } catch (PDOException $e) {
+            $error = $e->getMessage();
+            echo "Erro: $error";
+        }
 
     } else if($data["type"] === "delete")
-    {
+    {   
+        // DELETE
+
         $id = $data["id"];
 
-        $query="DELETE FROM todo WHERE id = :id";
+        $query = "DELETE FROM todo WHERE id = :id";
 
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);

@@ -1,4 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* INDEX PAGE */
+
+
+.main__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register__content, .table__content, .main__content__title {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.table-info tr th {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.table__tasks {
+    width: 60%;
+}
+
+.table__tasks p {
+    display: inline-block;
+}
+
+.table__tasks__true p {
+    color: grey;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+
 .table__action {
     display: flex;
-    gap: 5px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
 }
+
+/* EDIT PAGE */
+
+.edit__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 60vh;
+
+    gap: 6px;
+
+}
+
+.edit__content div {
+    width: 400px;
+}
+
+.edit__content div label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.edit__content div input {
+    height: 3rem;
+    margin: 10px 0;
+}
+
+/* VIEW PAGE */
+
+.view__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 60vh;
+
+    gap: 6px;
+
+}
+
+.view__content div {
+    width: 400px;
+}
+
+.view__content div label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.view__content div input {
+    height: 3rem;
+    margin: 10px 0;
+}
+
+/* BACKBTN */
+
+#back-link-container {
+    display: block;
+    width: 500px;
+    margin: 50px auto 0;
+  }
+  
+  #back-link {
+    border: 1px solid #007BFF;
+    color: #007BFF;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  
+  #back-link:hover {
+    text-decoration: none;
+  }
+  
